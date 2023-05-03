@@ -16,7 +16,7 @@ directory()
 class window(Frame):
     '''This class contains the widgets that will allow user to write into files'''
     def __init__(self,master=None):
-        #intialisation of the frame
+        #intialization of the frame
         Frame.__init__(self,master)
         self.master=master
         self.master.title("Diary")

@@ -7,7 +7,7 @@ from tkinter import messagebox
 class window(Frame):
     '''This class contains the widgets that allows the user to read the files stored previously'''
     def __init__(self,master=None):
-        #intilisation of the frame
+        #intilization of the frame
         Frame.__init__(self,master)
         self.master=master
         self.master.title("Diary")
