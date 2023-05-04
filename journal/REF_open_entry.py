@@ -2,6 +2,7 @@
 from tkinter import*
 import os
 from tkinter import messagebox
+import time
 
 
 class window(Frame):
@@ -23,11 +24,19 @@ class window(Frame):
         file_list.pack()
         for i in range(0,len(self.file_names)):
             file_list.insert(END, self.file_names[i])
-        selected_entry = file_list.curselection()
-        #file_list.bind('<<ListboxSelect>>', selected_entry)
+
+        def file_selected(event):
+            # get selected indices
+            selected_entry = file_list.curselection()
+
+        file_list.bind('<<ListboxSelect>>', file_selected)
+
 
         #Read button binded to the function "read_file" which displays the content in the file.
-        read_button=Button(self.master,text="Read",width=20,command=self.read_file(selected_entry).pack(side=BOTTOM))
+        read_button=Button(self.master,text="Read",width=20,command=self.read_file(file_list.curselection()).pack(side=BOTTOM))
+
+
+
 
     def read_file(self, selected_entry):
         self.selected_entry = selected_entry

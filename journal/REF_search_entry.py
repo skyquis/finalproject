@@ -1,0 +1,1 @@
+"""This will contain a class and frame widgets that allow the user to either search by date or keyword, and will return a list of journal entries that meet the criteria."""

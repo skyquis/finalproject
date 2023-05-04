@@ -8,6 +8,7 @@ import time
 #These modules are user defined python modules.Each module has its own function.
 import REF_create_new_entry
 import REF_open_entry
+import REF_search_entry
 import REF_edit_entry
 
 def directory():
@@ -87,31 +88,35 @@ class journal(Frame):
         edit_button.pack()
 
     def write(self):
-        '''this function calls the function defined in the "write_func" module.This module is an user defined module.
-        This module enables user to write their thoughts and save it in the respective directory.'''
+        """This function call to the create_new_entry module (and opens the corresponding window)"""
 
         a=Tk()
         B=REF_create_new_entry.window(a)
         B.mainloop()
 
     def read(self):
-        '''This function calls the function defined in the "read_func" module.This module is an user defined module.
-        This module enables user to read the files they have saved previously.'''
+        """This function call to the open_entry module (and opens the corresponding window)"""
 
         a=Tk()
         B=REF_open_entry.window(a)
         B.mainloop()
 
+    def search(self):
+        """This function call to the search_entry module (and opens the corresponding window)"""
+# NEED TO CREATE this still
+        a=Tk()
+        B=REF_search_entry.window(a)
+        B.mainloop()
+
     def edit(self):
-        '''this function calls the function defined in the "edit_func" module.This module is an user defined module.
-        This module enables the user to revisit and edit the files they have saved previously.'''
+        """This function call to the edit_entry module (and opens the corresponding window)"""
 
         a=Tk()
         B=REF_edit_entry.window(a)
         B.mainloop()
 
 
-'''Creating the instance of the login class and running the program'''
+"""Creating the instance of the login class and running the program"""
 a=Tk()
 a.geometry("250x50")
 app=login_interface(a)

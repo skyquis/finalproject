@@ -1,15 +1,16 @@
-#moules imported
+# Importing standard modules
 from tkinter import*
-import time
+from datetime import datetime
+# import time
 import os
 from tkinter import messagebox
 
-def directory():
-    '''This function sets the directory to the defined path.This path
-    is where all your files will be saved.'''
-    path="C:\\Users\\skyle\\OneDrive\\Documents\\DMACC\\CIS 189\\Final Project\\Journal Entries"
-    os.chdir(path)
-directory()
+#Can I pull this out of function?
+#def directory():
+"""Defining directory location where journal entries will be saved"""
+path = "C:\\Users\\skyle\\OneDrive\\Documents\\DMACC\\CIS 189\\Final Project\\Journal Entries"
+os.chdir(path)
+#directory()
 
 
 
@@ -37,13 +38,14 @@ class window(Frame):
         save_button=Button(self.master,text="Save",width=10,command=self.save_file).pack()
 
     def save_file(self):
-        '''This function saves the content written by the user as a text file'''
+        """This function saves the content written by the user as a text file"""
 
-        localtime=time.asctime(time.localtime(time.time()))
-        date=localtime[8:11]
-        month=localtime[4:7]
-        year=localtime[20:24]
-        file_name=self.title_box.get()+" "+date+month+year+".txt"
-        f=open(file_name,"w+")
-        f.write(self.content_box.get("1.0",END))
-        messagebox.showinfo("Diary","Your file is saved successfully!! ")
+        current_date_and_time = datetime.now()
+        date = current_date_and_time.strftime("%d")
+        # Opportunity for dictionary to switch this to month or number of month
+        month = current_date_and_time.strftime("%B")
+        year = current_date_and_time.strftime("%Y")
+        file_name = self.title_box.get()+" "+date+month+year+".txt"
+        f = open(file_name, "w+")
+        f.write(self.content_box.get("1.0", END))
+        messagebox.showinfo("Entry saved", "Journal entry saved successfully! ")
