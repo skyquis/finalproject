@@ -15,7 +15,7 @@ class window(Frame):
 
         #Diplaying the files in the path for the user to select.
         Label(self.master,text="Select a file").pack()
-        path="C:/Users/Dhanalakshmi/journal"
+        path="C:\\Users\\skyle\\OneDrive\\Documents\\DMACC\\CIS 189\\Final Project\\Journal Entries"
         self.file_names=os.listdir(path)
         self.srch_box=Entry(self.master)
         self.srch_box.pack()

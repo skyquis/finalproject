@@ -7,7 +7,7 @@ from tkinter import messagebox
 def directory():
     '''This function sets the directory to the defined path.This path
     is where all your files will be saved.'''
-    path="C:\\Users\\skyle\\OneDrive\\Desktop"
+    path="C:\\Users\\skyle\\OneDrive\\Documents\\DMACC\\CIS 189\\Final Project\\Journal Entries"
     os.chdir(path)
 directory()
 

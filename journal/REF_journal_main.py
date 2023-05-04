@@ -13,14 +13,14 @@ import REF_edit_entry
 def directory():
     '''This function sets the directory to the defined path.This path
     is where all your files will be saved.'''
-    path="C:\\Users\\skyle\\OneDrive\\Desktop"
+    path="C:\\Users\\skyle\\OneDrive\\Documents\\DMACC\\CIS 189\\Final Project\\Journal Entries"
     os.chdir(path)
 directory()
 
 class login_interface(Frame):
     '''This class contains the login section of the app.The user have
     to enter a password to access the main application.'''
-    def __init__(self,master=None):
+    def __init__(self,master=None, pwrd=None):
         #initiating the frame
         Frame.__init__(self,master)
         self.master=master
