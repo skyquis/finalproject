@@ -91,7 +91,7 @@ class journal(Frame):
         This module enables user to write their thoughts and save it in the respective directory.'''
 
         a=Tk()
-        B=create_new_entry.window(a)
+        B=REF_create_new_entry.window(a)
         B.mainloop()
 
     def read(self):
@@ -99,7 +99,7 @@ class journal(Frame):
         This module enables user to read the files they have saved previously.'''
 
         a=Tk()
-        B=open_entry.window(a)
+        B=REF_open_entry.window(a)
         B.mainloop()
 
     def edit(self):
@@ -107,7 +107,7 @@ class journal(Frame):
         This module enables the user to revisit and edit the files they have saved previously.'''
 
         a=Tk()
-        B=edit_entry.window(a)
+        B=REF_edit_entry.window(a)
         B.mainloop()
 
 

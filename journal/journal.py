@@ -46,4 +46,7 @@ if __name__ == "__main__":
     e.change_entry('Goodbye world')
     print(e.display())
     e.write_entry_to_file()
+    f = Journal('Third Title', "Howdy Y'all")
+    f.write_entry_to_file()
     del e #Garbage collection
+    del f #More garbage
