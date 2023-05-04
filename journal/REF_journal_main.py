@@ -6,9 +6,9 @@ import os
 import time
 
 #These modules are user defined python modules.Each module has its own function.
-import create_new_entry
-import open_entry
-import edit_entry
+import REF_create_new_entry
+import REF_open_entry
+import REF_edit_entry
 
 def directory():
     '''This function sets the directory to the defined path.This path
