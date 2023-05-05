@@ -98,21 +98,25 @@ class Journal(Frame):
 
     def write(self):
         """This function call to the create_new_entry module (and opens the corresponding window)"""
+        a = Tk()
         b = create_new_entry.NewEntryWindow(a)
         b.mainloop()
 
     def read(self):
         """This function call to the open_entry module (and opens the corresponding window)"""
+        a = Tk()
         b = open_entry.ReadWindow(a)
         b.mainloop()
 
     def search(self):
         """This function calls to the search_entry module (and opens the corresponding window)"""
+        a = Tk()
         b = search_entry.SearchWindow(a)
         b.mainloop()
 
     def edit(self):
         """This function call to the edit_entry module (and opens the corresponding window)"""
+        a = Tk()
         b = edit_entry.EditWindow(a)
         b.mainloop()
 
