@@ -117,7 +117,6 @@ class Journal(Frame):
 
     def search(self):
         """This function calls to the search_entry module (and opens the corresponding window)"""
-# NEED TO CREATE this still
         a = Tk()
         b = REF_search_entry.SearchWindow(a)
         b.mainloop()

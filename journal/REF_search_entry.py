@@ -35,7 +35,7 @@ class SearchWindow(Frame):
 
         # Next is date search label, entry boxes (one for each date, month, year), and button
 
-    def keyword_search(self, file_names):
+    def keyword_search(self):
         """This function reads in titles and contents of all journal files into a dictionary list.
         Then it will see if keyword search criteria is contained in either the titles or content.
         Will return a list of journal entries which meet the criteria"""
@@ -45,8 +45,25 @@ class SearchWindow(Frame):
         self.file_names = os.listdir(path)
 
         titles_and_content_dictionary = {}
-        titles_and_content_dictionary = dict.fromkeys(self.file_names)
+        titles_and_no_content_dictionary = dict.fromkeys(self.file_names)
+        print(titles_and_no_content_dictionary)
+
+        # GOOD TO THIS POINT! Need to add content to dictionary
+
+        journal_contents = [0] * len(self.file_names)
+
+        for j in range(0, len(self.file_names)):
+            with open(self.file_names[j]) as f:
+                journal_contents[j] = f.readlines()
+
+        titles_and_content_dictionary = dict(zip(titles_and_no_content_dictionary, journal_contents))
+
         print(titles_and_content_dictionary)
+
+        """for file_name in self.file_names:
+            with open(file_name) as f:
+                titles_and_content_dictionary.values(titles_and_content_dictionary[file_name]) = f.readlines()"""
+
 
         # for i in range(0, len(self.file_names)):
         # titles_and_content_dictionary()
