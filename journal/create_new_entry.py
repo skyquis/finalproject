@@ -5,12 +5,9 @@ from datetime import datetime
 import os
 from tkinter import messagebox
 
-# Can I pull this out of function?
-# def directory():
 """Defining directory location where journal entries will be saved"""
 path = "C:\\Users\\skyle\\OneDrive\\Documents\\DMACC\\CIS 189\\Final Project\\Journal Entries"
 os.chdir(path)
-# directory()
 
 
 class NewEntryWindow(Frame):
@@ -48,11 +45,12 @@ class NewEntryWindow(Frame):
 
         # Input validation that Title and Content contain characters
         try:
-            if len(self.title_box.get()) > 0 and len(self.content_box.get("1.0", END)) > 0:
+            if len(self.title_box.get()) > 0 and len(self.content_box.get("1.0", END)) > 1:
                 file_name = self.title_box.get()+" "+date+month+year+".txt"
                 f = open(file_name, "w+")
                 f.write(self.content_box.get("1.0", END))
                 messagebox.showinfo("Entry saved", "Journal entry saved successfully! ")
+                print(self.content_box.get("1.0", END), len(self.content_box.get("1.0", END)))
             else:
                 raise ValueError
         except:
