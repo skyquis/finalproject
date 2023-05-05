@@ -51,21 +51,31 @@ class login_interface(Frame):
         """this function is initiated by the "login" Button. It checks if the
         password given by the user is correct"""
 
-        # if the password given is correct the following get executed
-        if self.pwrd.get() == "123":
-            # destroys the present login window
-            a.destroy()
+        # Input validation to ensure a password is entered
+        try:
+            if len(self.pwrd.get()) > 0:
+                # if the password given is correct the following get executed
+                if self.pwrd.get() == "123":
+                    # destroys the present login window
+                    a.destroy()
 
-            # initiates the main application
-            b = Tk()
-            b.geometry("500x700")
-            # 500 x 500 with only 3 buttons
-            app_b = Journal(b)
-            app_b.mainloop()  # mainloop for the program will run until close
+                    # initiates the main application
+                    b = Tk()
+                    b.geometry("500x700")
+                    # 500 x 500 with only 3 buttons
+                    app_b = Journal(b)
+                    app_b.mainloop()  # mainloop for the program will run until close
 
-        # else statement on handling wrong password
-        else:
-            messagebox.showinfo("ERROR ", "Incorrect password, please try again!")
+                # else statement on handling wrong password
+                else:
+                    messagebox.showinfo("ERROR ", "Incorrect password, please try again!")
+            else:
+                raise ValueError
+
+        except:
+            messagebox.showinfo("ERROR - NO ENTRY", "No password entered, please try again!")
+
+
 
 
 class Journal(Frame):
