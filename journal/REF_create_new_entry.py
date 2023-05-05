@@ -5,40 +5,40 @@ from datetime import datetime
 import os
 from tkinter import messagebox
 
-#Can I pull this out of function?
-#def directory():
+# Can I pull this out of function?
+# def directory():
 """Defining directory location where journal entries will be saved"""
 path = "C:\\Users\\skyle\\OneDrive\\Documents\\DMACC\\CIS 189\\Final Project\\Journal Entries"
 os.chdir(path)
-#directory()
+# directory()
 
 
-
-class window(Frame):
-    '''This class contains the widgets that will allow user to write into files'''
-    def __init__(self,master=None):
-        #intialization of the frame
-        Frame.__init__(self,master)
+class NewEntryWindow(Frame):
+    """This class contains the widgets that will allow user to write into files"""
+    def __init__(self, master=None):
+        # Setting up Create New Entry Window frame
+        Frame.__init__(self, master)
         self.master=master
-        self.master.title("Diary")
-        title=Label(self.master,text="Title").pack()
+        self.master.title("Create New Entry")
+        Label(self.master, text="Title").pack()
 
-        #Entry box to get title of the file from the user.
-        self.title_box=Entry(self.master)
+        # Entry box to get journal entry title
+        self.title_box = Entry(self.master)
         self.title_box.pack()
 
-        scrollbar=Scrollbar(self.master).pack(side=RIGHT,fill=Y)#scrollbar
-        Label(self.master,text="Content").pack()
+        # scrollbar
+        Scrollbar(self.master).pack(side=RIGHT,fill=Y)
+        Label(self.master, text="Content").pack()
 
-        #Text for the user to write his thoughts
-        self.content_box=Text(self.master)
+        # Text box where journal entry is typed
+        self.content_box = Text(self.master)
         self.content_box.pack()
 
-        #This button is binded to the function "save_file" wich saves the file in the specified path'''
-        save_button=Button(self.master,text="Save",width=10,command=self.save_file).pack()
+        # Save button is linked to the function "save_file" which saves the file in the specified path'''
+        Button(self.master, text="Save", width=10, command=self.save_file).pack()
 
     def save_file(self):
-        """This function saves the content written by the user as a text file"""
+        """This function saves the content written by the user as a text file and creates a file title name using title entry and current date"""
 
         current_date_and_time = datetime.now()
         date = current_date_and_time.strftime("%d")

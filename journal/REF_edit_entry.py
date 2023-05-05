@@ -4,48 +4,48 @@ import os
 from tkinter import messagebox
 
 
-class window(Frame):
-    '''This class contains the widgets that allows the user to edit the file saved previously'''
+class EditWindow(Frame):
+    """This class has the UI and functions to edit a file stored previously"""
 
-    def __init__(self,master=None):
-        #intitialsation of frame
-        Frame.__init__(self,master)
+    def __init__(self, master=None):
+        # Setting up Edit Entry Window frame
+        Frame.__init__(self, master)
         self.master.title("Diary")
         self.master.geometry("400x300")
 
-        #Diplaying the files in the path for the user to select.
-        Label(self.master,text="Select a file").pack()
-        path="C:\\Users\\skyle\\OneDrive\\Documents\\DMACC\\CIS 189\\Final Project\\Journal Entries"
-        self.file_names=os.listdir(path)
-        self.srch_box=Entry(self.master)
+        # Diplaying the files in the path for the user to select.
+        Label(self.master, text="Select a file").pack()
+        path = "C:\\Users\\skyle\\OneDrive\\Documents\\DMACC\\CIS 189\\Final Project\\Journal Entries"
+        self.file_names = os.listdir(path)
+        self.srch_box = Entry(self.master)
         self.srch_box.pack()
-        file_list=Listbox(self.master)
+        file_list = Listbox(self.master)
         file_list.pack()
-        for i in range(0,len(self.file_names)):
-            a=str(i+1)+") "+self.file_names[i]
-            file_list.insert(END,a)
+        for i in range(0, len(self.file_names)):
+            file_list.insert(END, self.file_names[i])
 
-        #Edit button binded with "edit_File" function which allows user to edit the selected file.
-        edit_button=Button(self.master,text="Edit File",width=20,command=self.edit_file).pack()
+        # Edit button linked to edit_entry function which allows user to edit the selected file.
+        Button(self.master, text="Edit File", width=20, command=self.edit_entry).pack()
 
 
-    def edit_file(self):
-        '''This function opens the file specified by the user to edit it.If the file is not present then it shows an error '''
-        self.file_name=self.srch_box.get()
-        if(self.file_name in self.file_names ):
-            f=open(self.file_name,"r")
-            content=f.read()
-            edit_window=Tk()
-            t=Text(edit_window)
+    def edit_entry(self):
+        """This function attempts to open the file name typed in by user.
+        If it cannot find requested file, shows error message box"""
+        self.file_name = self.srch_box.get()
+        if self.file_name in self.file_names:
+            f = open(self.file_name, "r")
+            content = f.read()
+            edit_window = Tk()
+            t = Text(edit_window)
             t.pack()
             edit_window.title(self.file_name)
-            t.insert("end",content)
+            t.insert("end", content)
 
-            #Saves the edited file.
+            # Inner function to save edited file.
             def save_file():
-                F=open(self.file_name,"w+")
-                F.write(t.get("1.0",END))
-                messagebox.showinfo("Diary","Your file is saved successfully")
-            save_button=Button(edit_window,text="Save",command=save_file).pack()
+                g = open(self.file_name, "w+")
+                g.write(t.get("1.0", END))
+                messagebox.showinfo("MyJournal", "Your entry edits have been saved successfully")
+            Button(edit_window, text="Save", command=save_file).pack()
         else:
-            messagebox.showinfo("Diary","File doesn't exist")
+            messagebox.showinfo("MyJournal", "File doesn't exist")
