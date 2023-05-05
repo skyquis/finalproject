@@ -27,7 +27,6 @@ class EditWindow(Frame):
         # Edit button linked to edit_entry function which allows user to edit the selected file.
         Button(self.master, text="Edit File", width=20, command=self.edit_entry).pack()
 
-
     def edit_entry(self):
         """This function attempts to open the file name typed in by user.
         If it cannot find requested file, shows error message box"""

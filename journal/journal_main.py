@@ -3,8 +3,6 @@
 # Importing modules
 from tkinter import*
 from tkinter import messagebox
-import os
-import time
 
 import create_new_entry
 import open_entry
@@ -12,17 +10,7 @@ import search_entry
 import edit_entry
 
 
-def directory():
-    """This function sets the directory to the defined path.This path
-    is where all your files will be saved."""
-    path = "C:\\Users\\skyle\\OneDrive\\Documents\\DMACC\\CIS 189\\Final Project\\Journal Entries"
-    os.chdir(path)
-
-
-directory()
-
-
-class login_interface(Frame):
+class LoginInterface(Frame):
     """his class contains the login section of the app.The user have
     to enter a password to access the main application."""
     def __init__(self, master=None, pwrd=None):
@@ -113,28 +101,21 @@ class Journal(Frame):
 
     def write(self):
         """This function call to the create_new_entry module (and opens the corresponding window)"""
-
-        a = Tk()
         b = create_new_entry.NewEntryWindow(a)
         b.mainloop()
 
     def read(self):
         """This function call to the open_entry module (and opens the corresponding window)"""
-
-        a = Tk()
         b = open_entry.ReadWindow(a)
         b.mainloop()
 
     def search(self):
         """This function calls to the search_entry module (and opens the corresponding window)"""
-        a = Tk()
         b = search_entry.SearchWindow(a)
         b.mainloop()
 
     def edit(self):
         """This function call to the edit_entry module (and opens the corresponding window)"""
-
-        a = Tk()
         b = edit_entry.EditWindow(a)
         b.mainloop()
 
@@ -142,5 +123,5 @@ class Journal(Frame):
 """Creating the instance of the login class and running the program"""
 a = Tk()
 a.geometry("250x50")
-app = login_interface(a)
+app = LoginInterface(a)
 app.mainloop()
