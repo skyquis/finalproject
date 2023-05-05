@@ -45,7 +45,17 @@ class NewEntryWindow(Frame):
         # Opportunity for dictionary to switch this to month or number of month
         month = current_date_and_time.strftime("%B")
         year = current_date_and_time.strftime("%Y")
-        file_name = self.title_box.get()+" "+date+month+year+".txt"
-        f = open(file_name, "w+")
-        f.write(self.content_box.get("1.0", END))
-        messagebox.showinfo("Entry saved", "Journal entry saved successfully! ")
+
+        # Input validation that Title and Content contain characters
+        try:
+            if len(self.title_box.get()) > 0 and len(self.content_box.get("1.0", END)) > 0:
+                file_name = self.title_box.get()+" "+date+month+year+".txt"
+                f = open(file_name, "w+")
+                f.write(self.content_box.get("1.0", END))
+                messagebox.showinfo("Entry saved", "Journal entry saved successfully! ")
+            else:
+                raise ValueError
+        except:
+            messagebox.showinfo("MISSING TITLE AND/OR CONTENT", "No characters detected in Title and/or Content fields")
+
+

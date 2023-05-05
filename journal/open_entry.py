@@ -2,7 +2,6 @@
 from tkinter import*
 import os
 from tkinter import messagebox
-import time
 
 
 class ReadWindow(Frame):
@@ -25,23 +24,22 @@ class ReadWindow(Frame):
         for i in range(0, len(self.file_names)):
             file_list.insert(END, self.file_names[i])
 
-        def file_selected(event):
+        """def file_selected(event):
             # get selected indices
             selected_entry = file_list.curselection()
 
-        file_list.bind('<<ListboxSelect>>', file_selected)
+        file_list.bind('<<ListboxSelect>>', file_selected)"""
 
         # Read button is linked the function "read_file" which displays the content in the file.
-        Button(self.master, text="Read", width=20, command=self.read_file(file_list.curselection()).pack(side=BOTTOM))
+        Button(self.master, text="Read", width=20, command=self.read_file).pack(side=BOTTOM)
 
-    def read_file(self, selected_entry):
-        self.selected_entry = selected_entry
-        print("selected entry", self.selected_entry)
-        print("all file names", self.file_names)
+    def read_file(self):
+        self.file_name = self.srch_box.get()
 
         """If the specified file is present it is displayed in a text
          for the user to read. Else an error is displayed"""
-        if self.selected_entry in self.file_names:
+        try:
+            assert self.file_name in self.file_names
             f = open(self.file_name, "r")
             contents = f.read()
             read_window = Tk()
@@ -51,5 +49,5 @@ class ReadWindow(Frame):
             t.insert("end", contents)
             t.config(state=DISABLED)
             read_window.mainloop()
-        else:
+        except:
             messagebox.showinfo("MyJournal", "File doesn't exist")

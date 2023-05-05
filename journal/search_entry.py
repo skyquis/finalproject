@@ -1,12 +1,12 @@
-"""This will contain a class and frame widgets that allow the user to either search by date or keyword, and will return a list of journal entries that meet the criteria."""
+"""This will contain a class and frame widgets that allow the user to either search by date or keyword,
+and will return a list of journal entries that meet the criteria."""
 
-# Imports?
+# Imports
 from tkinter import*
 import os
 
-# Class SearchWindow
 class SearchWindow(Frame):
-
+    """This class has the UI and functions to search for a file stored previously"""
     def __init__(self, master=None):
         # Setting up Search Window frame
         Frame.__init__(self, master)
@@ -62,9 +62,3 @@ class SearchWindow(Frame):
 
         # Search dictionary for keyword
 
-
-        """for file_name in self.file_names:
-            with open(file_name) as f:
-                titles_and_content_dictionary.values(titles_and_content_dictionary[file_name]) = f.readlines()"""
-
-        # messagebox.showinfo("Entry saved", "Journal entry saved successfully! ")
