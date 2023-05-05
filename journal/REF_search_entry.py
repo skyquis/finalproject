@@ -44,7 +44,6 @@ class SearchWindow(Frame):
         path = "C:\\Users\\skyle\\OneDrive\\Documents\\DMACC\\CIS 189\\Final Project\\Journal Entries"
         self.file_names = os.listdir(path)
 
-        titles_and_content_dictionary = {}
         titles_and_no_content_dictionary = dict.fromkeys(self.file_names)
         print(titles_and_no_content_dictionary)
 
@@ -56,16 +55,16 @@ class SearchWindow(Frame):
             with open(self.file_names[j]) as f:
                 journal_contents[j] = f.readlines()
 
+        # Create dictionary from titles and content together
         titles_and_content_dictionary = dict(zip(titles_and_no_content_dictionary, journal_contents))
 
         print(titles_and_content_dictionary)
 
+        # Search dictionary for keyword
+
+
         """for file_name in self.file_names:
             with open(file_name) as f:
                 titles_and_content_dictionary.values(titles_and_content_dictionary[file_name]) = f.readlines()"""
-
-
-        # for i in range(0, len(self.file_names)):
-        # titles_and_content_dictionary()
 
         # messagebox.showinfo("Entry saved", "Journal entry saved successfully! ")
