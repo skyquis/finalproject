@@ -6,10 +6,10 @@ from tkinter import messagebox
 import os
 import time
 
-import REF_create_new_entry
-import REF_open_entry
-import REF_search_entry
-import REF_edit_entry
+import create_new_entry
+import open_entry
+import search_entry
+import edit_entry
 
 
 def directory():
