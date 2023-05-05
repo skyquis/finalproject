@@ -34,7 +34,6 @@ class LoginInterface(Frame):
         login = Button(self, text="login", width=20, command=self.login)
         login.grid(column=1, row=2)
 
-
     def login(self):
         """this function is initiated by the "login" Button. It checks if the
         password given by the user is correct"""
@@ -62,8 +61,6 @@ class LoginInterface(Frame):
 
         except:
             messagebox.showinfo("ERROR - NO ENTRY", "No password entered, please try again!")
-
-
 
 
 class Journal(Frame):

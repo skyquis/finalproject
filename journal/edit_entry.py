@@ -10,7 +10,7 @@ class EditWindow(Frame):
     def __init__(self, master=None):
         # Setting up Edit Entry Window frame
         Frame.__init__(self, master)
-        self.master.title("Diary")
+        self.master.title("Edit Entry")
         self.master.geometry("400x300")
 
         # Displaying the files in the path for the user to select.
