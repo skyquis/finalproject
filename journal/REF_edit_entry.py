@@ -1,4 +1,4 @@
-#Modules imported
+# Importing modules
 from tkinter import*
 import os
 from tkinter import messagebox
@@ -13,7 +13,7 @@ class EditWindow(Frame):
         self.master.title("Diary")
         self.master.geometry("400x300")
 
-        # Diplaying the files in the path for the user to select.
+        # Displaying the files in the path for the user to select.
         Label(self.master, text="Select a file").pack()
         path = "C:\\Users\\skyle\\OneDrive\\Documents\\DMACC\\CIS 189\\Final Project\\Journal Entries"
         self.file_names = os.listdir(path)
